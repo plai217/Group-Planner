@@ -1,0 +1,9 @@
+User Email: <%= @user.email %>
+  <ul>
+    <% @user.plans.each do |plan| %>
+    <li><%= link_to plan.title, user_plan_path(@user.id, plan.id) %></li>
+    <% end %>
+  </ul>
+
+<%= link_to "Create New Plan", new_user_plan_path(@user) %>
+<%= link_to "Start Voting", user_votes_path(@user) %>

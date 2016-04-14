@@ -1,0 +1,5 @@
+<% @plans.each do |plan| %>
+  <ul>
+    <li><%= link_to plan.title, user_plan_path(@user.id, plan.id)  %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,12 @@
+
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<br>
+Tests<p>
+User First: <%= @users.first.email %><p>
+User First: Plans <%= @users.first.plans.first.title %><p>
+Plan First: <%= @plans.first.title %><p>
+Plan First Users: <%= @plans.first.users.first.email %><p>
+
+<%= link_to "Show my invitations", user_path(current_user) %>

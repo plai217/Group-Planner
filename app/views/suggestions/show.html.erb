@@ -1,0 +1,15 @@
+<h3>Place: <%= @suggestion.location %></h3>
+<h3>Time: <%= @suggestion.time %></h3><p>
+
+<table border="1" style="width:100%">
+  <tr>
+    <td>Name</td>
+    <td>Vote</td>
+  </tr>
+  <% @suggestion.votes.each do |vote| %>
+  <tr>
+    <td><%= vote.user.email %></td>
+    <td><%= vote.confirm || "did not vote" %></td>
+  </tr>
+  <% end %>
+</table>

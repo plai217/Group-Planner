@@ -1,0 +1,9 @@
+<%= form_for @plan do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label "Details" %>
+  <%= f.text_field :body %><br>
+  <%= f.label "Add users to plan" %><br>
+  <%= f.collection_check_boxes :user_ids, User.all, :id, :email, include_hidden: false %><p>
+  <%= f.submit %>
+<% end %>

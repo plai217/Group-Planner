@@ -1,0 +1,22 @@
+<h3>Plan: <%= @plan.title %></h3><p>
+Suggestions
+<table border="1" style="width:100%">
+  <tr>
+    <td>Location</td>
+    <td>Time</td>
+    <td>Votes</td>
+    <td>Percent confirmed</td>
+  </tr>
+  <% @plan.suggestions.each do |suggestion| %>
+    <tr>
+      <td><%= suggestion.location %></td>
+      <td><%= suggestion.time %></td>
+      <td><%= link_to "Show votes", [@user, @plan, suggestion] %></td>
+      <td><%= suggestion.percent_confirmed? %>%</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add a suggestion", new_user_plan_suggestion_path(@user, @plan)  %>
+<br>
+<%= link_to "Return to user screen", user_path(@user) %>
