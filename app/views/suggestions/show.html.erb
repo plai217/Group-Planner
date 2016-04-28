@@ -9,7 +9,7 @@
   <% @suggestion.votes.each do |vote| %>
   <tr>
     <td><%= vote.user.email %></td>
-    <td><%= vote.confirm || "did not vote" %></td>
+    <td><%= vote.confirm %></td>
   </tr>
   <% end %>
 </table>

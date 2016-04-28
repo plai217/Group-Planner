@@ -11,7 +11,7 @@ class SuggestionsController < ApplicationController
 
   def create
     @suggestion = Suggestion.create(suggestion_params)
-    @suggestion.add_votes
+    @suggestion.update_votes
     @suggestion.save
     redirect_to '/'
   end

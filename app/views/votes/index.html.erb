@@ -1,14 +1,11 @@
 <h3>Current Votes</h3>
 
 <% @votes.each do |vote| %>
-  <%= vote.suggestion.location %>
-  <%= form_for vote do |f| %>
-    <%= f.label :confirm %>
-    <%= f.check_box :confirm %>
-    <%= f.submit %>
-  <% end %>
-  <br>
+  <%= vote.suggestion.location %> | <%= vote.suggestion.time.strftime('%c') %> 
+    <%= form_for vote do |f| %>
+      <%= f.label :confirm %>
+      <%= f.check_box :confirm %>
+      <%= f.submit %>
+    <% end %>
 <% end %>
-
-<%= link_to "Return to user screen", user_path(@user) %>
 

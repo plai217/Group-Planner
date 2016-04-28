@@ -7,15 +7,30 @@ class PlansController < ApplicationController
 
   def show
     set_current_user
-    @plan = @user.plans.find(params[:id])
+    @plan = Plan.find(params[:id])
+    authorize @user
   end
 
   def new
     @plan = Plan.new
   end
 
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+
   def create
-    @plan = Plan.create(plan_params)
+    @plan = Plan.new(plan_params)
+    if @plan.save
+      redirect_to '/'
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @plan = Plan.find(params[:id])
+    @plan.update(plan_params)
     redirect_to '/'
   end
 

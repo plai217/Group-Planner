@@ -2,7 +2,8 @@ class Suggestion < ActiveRecord::Base
   belongs_to :plan
   has_many :votes
 
-  def add_votes
+  def update_votes
+    binding.pry
     self.plan.users.each do |user|
       self.votes.create(:user => user)  
     end

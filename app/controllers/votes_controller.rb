@@ -9,6 +9,7 @@ class VotesController < ApplicationController
     @vote = Vote.find(params[:id])
     @vote.confirm = params[:vote][:confirm]
     @vote.save
+    flash[:notice] = "Updated #{@vote.suggestion.location}"
     redirect_to(:back)
   end
 

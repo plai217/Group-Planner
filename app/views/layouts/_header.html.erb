@@ -1,16 +1,19 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, id: "flash_#{name}" %>
 <% end %>
+  
+<%= notice %></p>
+<%= alert %></p>
+<div class="page-header">
+  <h1>Group Planner</h1>
+</div>
 
-<h3>Welcome</h3>
-<nav class="">
-    <ul>
-        <% if user_signed_in? %>
-          <li> Signed in as <%= current_user.email %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></li>
-        <% end %>
-    </ul>
-</nav>
+<% if user_signed_in? %>
+  <%= link_to "Home", root_path %> |
+  Signed in as <%= current_user.email %> |
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> |
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+<% end %>
+
 
